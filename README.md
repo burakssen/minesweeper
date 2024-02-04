@@ -4,9 +4,9 @@ This is a simple minesweeper game written in C++ using the raylib library. The g
 
 ## Screenshots
 
-![Game](screenshots/1.png)
-![Game](screenshots/2.png)
-![Game](screenshots/3.png)
+![Game](screenshots/1.png | width=100)
+![Game](screenshots/2.png | width=100)
+![Game](screenshots/3.png | width=100)
 
 ## Building the game
 
