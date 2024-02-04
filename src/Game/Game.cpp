@@ -97,7 +97,8 @@ void Game::HandleEvents()
         }
     }
 
-    if (int wm = GetMouseWheelMove(); wm != 0)
+    // Camera controls are disabled because it doesn't work well with the grid
+    /*if (int wm = GetMouseWheelMove(); wm != 0)
     {
         this->m_camera->zoom += wm * 0.05f;
 
@@ -129,7 +130,7 @@ void Game::HandleEvents()
             this->m_camera->offset.x += (mousePos.x - this->m_camera->target.x) * 0.5f;
             this->m_camera->offset.y += (mousePos.y - this->m_camera->target.y) * 0.5f;
         }
-    }
+    }*/
 
     if (IsKeyPressed(KEY_R))
     {
