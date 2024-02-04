@@ -2,6 +2,12 @@
 
 This is a simple minesweeper game written in C++ using the raylib library. The game is a simple implementation of the classic minesweeper game. The game is written in C++ and uses the raylib library for rendering and input handling.
 
+## Screenshots
+
+![Game](screenshots/1.png)
+![Game](screenshots/2.png)
+![Game](screenshots/3.png)
+
 ## Building the game
 
 To build the game first clone the repository recursively to get the raylib library as well. Then use the provided cmake to build the game. The game can be built using the following commands:
