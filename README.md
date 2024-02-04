@@ -6,7 +6,7 @@ This is a simple minesweeper game written in C++ using the raylib library. The g
 
 | <img src="screenshots/1.png"> | <img src="screenshots/2.png"> |
 | ----------------------------- | ----------------------------- |
-| <img src="screenshots/3.png"> |                               |
+| <img src="screenshots/3.png"> |
 
 ## Building the game
 
