@@ -5,6 +5,9 @@
 Cell::Cell(Vector2 position, int size)
     : m_position(position), m_size(size)
 {
+    this->m_explosionSound = std::make_shared<Sound>(LoadSound("resources/explosion.wav"));
+    this->m_revealSound = std::make_shared<Sound>(LoadSound("resources/reveal.wav"));
+    this->m_flagSound = std::make_shared<Sound>(LoadSound("resources/flag.wav"));
 }
 
 Cell::~Cell()
@@ -51,6 +54,8 @@ void Cell::Render()
                     this->SetSourceRec({1, 0});
                 else if (this->m_time < 2.1f)
                 {
+
+                    PlaySound(*m_explosionSound);
                     this->SetSourceRec({3, 0});
                     this->m_exploded = true;
                 }
@@ -83,11 +88,16 @@ void Cell::HandleEvents()
             {
                 this->m_state = CellState::Revealed;
                 if (this->m_type != CellType::Mine)
+                {
+                    PlaySound(*m_revealSound);
                     this->RevealNeighbours(0);
+                }
                 else
                 {
                     if (this->m_grid != nullptr)
+                    {
                         this->m_grid->SetCellExploded(true);
+                    }
                 }
             }
         }
@@ -97,10 +107,12 @@ void Cell::HandleEvents()
             {
                 if (this->m_state == CellState::Hidden)
                 {
+                    PlaySound(*m_flagSound);
                     this->m_state = CellState::Flagged;
                 }
                 else if (this->m_state == CellState::Flagged)
                 {
+                    PlaySound(*m_flagSound);
                     this->m_state = CellState::Hidden;
                 }
             }

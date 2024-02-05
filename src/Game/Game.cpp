@@ -7,6 +7,8 @@ Game::Game()
     InitWindow(this->m_width, m_height, m_title.c_str());
     SetTargetFPS(60);
 
+    InitAudioDevice();
+
     this->m_grid = &Grid::GetInstance();
     this->m_grid->SetPosition({0.0f, (float)this->m_height - 672});
     this->m_grid->SetSize({(float)1024, 672});
@@ -16,12 +18,11 @@ Game::Game()
     this->m_camera->offset = {0.0f, 0.0f};
     this->m_camera->rotation = 0.0f;
     this->m_camera->zoom = 1.0f;
-
-    std::cout << "Press SPACE to change the number of cells" << std::endl;
 }
 
 Game::~Game()
 {
+    CloseAudioDevice();
     this->m_grid->DestroyGrid();
     CloseWindow();
 }

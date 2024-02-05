@@ -64,4 +64,8 @@ private:
     std::vector<std::shared_ptr<Cell>> m_neighbours;
 
     Grid *m_grid = nullptr;
+
+    std::shared_ptr<Sound> m_explosionSound;
+    std::shared_ptr<Sound> m_flagSound;
+    std::shared_ptr<Sound> m_revealSound;
 };
