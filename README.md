@@ -46,3 +46,7 @@ The game uses the following libraries:
 The game uses the following tools:
 
 - [cmake](https://cmake.org/)
+
+The game uses the sound effects from the following sources:
+
+- [rFXGen](https://raylibtech.itch.io/rfxgen)
