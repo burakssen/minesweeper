@@ -47,6 +47,10 @@ public:
 
     void SetGrid(Grid *grid);
 
+    void SetExplosionSound(std::shared_ptr<Sound> explosionSound);
+    void SetFlagSound(std::shared_ptr<Sound> flagSound);
+    void SetRevealSound(std::shared_ptr<Sound> revealSound);
+
 private:
     Vector2 m_position;
     int m_size;

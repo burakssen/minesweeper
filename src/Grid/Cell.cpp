@@ -5,9 +5,6 @@
 Cell::Cell(Vector2 position, int size)
     : m_position(position), m_size(size)
 {
-    this->m_explosionSound = std::make_shared<Sound>(LoadSound("resources/explosion.wav"));
-    this->m_revealSound = std::make_shared<Sound>(LoadSound("resources/reveal.wav"));
-    this->m_flagSound = std::make_shared<Sound>(LoadSound("resources/flag.wav"));
 }
 
 Cell::~Cell()
@@ -182,4 +179,19 @@ void Cell::RevealNeighbours(int depth)
 void Cell::SetGrid(Grid *grid)
 {
     this->m_grid = grid;
+}
+
+void Cell::SetExplosionSound(std::shared_ptr<Sound> explosionSound)
+{
+    this->m_explosionSound = explosionSound;
+}
+
+void Cell::SetFlagSound(std::shared_ptr<Sound> flagSound)
+{
+    this->m_flagSound = flagSound;
+}
+
+void Cell::SetRevealSound(std::shared_ptr<Sound> revealSound)
+{
+    this->m_revealSound = revealSound;
 }

@@ -5,10 +5,18 @@
 Grid::Grid()
 {
     this->m_texture = std::make_shared<Texture2D>(LoadTexture("resources/minesweeper.png"));
+
+    this->m_explosionSound = std::make_shared<Sound>(LoadSound("resources/explosion.wav"));
+    this->m_revealSound = std::make_shared<Sound>(LoadSound("resources/reveal.wav"));
+    this->m_flagSound = std::make_shared<Sound>(LoadSound("resources/flag.wav"));
 }
 
 Grid::~Grid()
 {
+    UnloadTexture(*this->m_texture);
+    UnloadSound(*this->m_explosionSound);
+    UnloadSound(*this->m_revealSound);
+    UnloadSound(*this->m_flagSound);
 }
 
 Grid &Grid::GetInstance()
@@ -126,6 +134,9 @@ void Grid::InitGrid()
             auto cell = std::make_shared<Cell>(Vector2{(float)i * this->m_cellSize + this->m_position.x, (float)j * this->m_cellSize + this->m_position.y}, this->m_cellSize);
             cell->SetState(CellState::Hidden);
             cell->SetGrid(this);
+            cell->SetExplosionSound(this->m_explosionSound);
+            cell->SetFlagSound(this->m_flagSound);
+            cell->SetRevealSound(this->m_revealSound);
             cell->SetTexture(this->m_texture);
             row.emplace_back(cell);
         }

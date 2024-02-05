@@ -59,4 +59,8 @@ private:
     bool m_cellExploded = false;
 
     bool m_allCellsRevealed = false;
+
+    std::shared_ptr<Sound> m_explosionSound;
+    std::shared_ptr<Sound> m_flagSound;
+    std::shared_ptr<Sound> m_revealSound;
 };
